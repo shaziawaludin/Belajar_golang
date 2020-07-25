@@ -60,5 +60,34 @@ func main() {
 	namaAdik := strings.Title(strings.ToLower(string(temp2)))
 
 	fmt.Println("Nama Kakak : ", namaKakak)
-	fmt.Println("Nama Adik : ", namaAdik)
+	fmt.Println("Nama Adik : ", namaAdik+"\n")
+
+	//cara lain untuk membuat string terbalik urutannya
+	namaKakak = "Merosa Pesona"
+
+	temp = []rune(namaKakak)
+	for i, j := 0, len(temp)-1; i < j; i, j = i+1, j-1 {
+		temp[i], temp[j] = temp[j], temp[i]
+
+		//ini kelebihan golang, bisa naruh beberapa
+		//nilai var tanpa perantara. Berkat sifat
+		//multiple declaration
+		/*prosesnya :
+		i  j  temp[j]  temp[i]  >>  temp[i]  temp[j]
+		0  12   a		 M			  a			M
+		1  11   n		 e			  n			e
+		2  10   o		 r			  o			r
+		3  9    s		 o			  s			o
+		4  8    e		 s			  e			s
+		5  7    P		 a			  P			a
+
+		result : anoseP asoreM
+		perlu diubah lagi agar formatnya Title case.
+		*/
+	}
+
+	namaAdikRev := strings.Title(strings.ToLower(string(temp)))
+
+	fmt.Println("Nama Kakak : ", namaKakak)
+	fmt.Println("Nama Adik : ", namaAdikRev)
 }
